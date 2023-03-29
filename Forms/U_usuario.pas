@@ -42,17 +42,22 @@ implementation
 
 {$R *.dfm}
 
-procedure TFrm_usuario.bt_novoClick(Sender: TObject);
+
+
+
+  procedure TFrm_usuario.bt_novoClick(Sender: TObject);
 begin
   inherited;
  db_cadastro.Text:=DateTostr(now);
  db_nome.SetFocus;
 end;
 
-procedure TFrm_usuario.bt_sairClick(Sender: TObject);
+
+
+
+  procedure TFrm_usuario.bt_sairClick(Sender: TObject);
 begin
   inherited;
-close;
+  close;
 end;
-
 end.

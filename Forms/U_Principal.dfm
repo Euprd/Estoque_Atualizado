@@ -2,7 +2,7 @@ object Frm_Principal: TFrm_Principal
   Left = 0
   Top = 0
   Caption = 'Gest'#227'o de Estoque'
-  ClientHeight = 635
+  ClientHeight = 568
   ClientWidth = 1184
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
@@ -36,7 +36,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -568,7 +568,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -1100,7 +1100,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -1632,7 +1632,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -2164,7 +2164,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -2696,7 +2696,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -3228,7 +3228,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -3759,7 +3759,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -4290,7 +4290,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -4821,7 +4821,7 @@ object Frm_Principal: TFrm_Principal
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = []
+      Font.Style = [fsBold]
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000130B0000130B000000000000000000000000FF0000FF
@@ -5345,7 +5345,7 @@ object Frm_Principal: TFrm_Principal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 616
+    Top = 549
     Width = 1184
     Height = 19
     Panels = <
@@ -5358,15 +5358,16 @@ object Frm_Principal: TFrm_Principal
       item
         Width = 150
       end>
+    ExplicitTop = 616
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
     Left = 1056
-    Top = 536
+    Top = 488
   end
   object MainMenu1: TMainMenu
-    Left = 1000
-    Top = 536
+    Left = 992
+    Top = 488
     object Cadastro1: TMenuItem
       Caption = 'Cadastro'
       object menu_usuario: TMenuItem
