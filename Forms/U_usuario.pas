@@ -1,7 +1,5 @@
 unit U_usuario;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
@@ -9,7 +7,6 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
-
 type
   TFrm_usuario = class(TFrm_padrao)
     Q_padraoID_USUARIO: TIntegerField;
@@ -29,18 +26,18 @@ type
     DB_tipo: TDBComboBox;
     procedure bt_novoClick(Sender: TObject);
     procedure bt_sairClick(Sender: TObject);
+    procedure bt_pesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
-
 var
   Frm_usuario: TFrm_usuario;
-
 implementation
-
 {$R *.dfm}
+
+uses U_pesq_usuario;
 
 
 
@@ -54,8 +51,19 @@ end;
 
 
 
+  procedure TFrm_usuario.bt_pesquisarClick(Sender: TObject);
+begin
+frm_pesq_usuario:=Tfrm_pesq_usuario.Create(self);
+frm_pesq_usuario.ShowModal;
+try
 
-  procedure TFrm_usuario.bt_sairClick(Sender: TObject);
+finally
+   frm_pesq_usuario.Free;
+   frm_pesq_usuario:=nil;
+end;
+end;
+
+procedure TFrm_usuario.bt_sairClick(Sender: TObject);
 begin
   inherited;
   close;

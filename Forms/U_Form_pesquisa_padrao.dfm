@@ -10,8 +10,10 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -23,7 +25,6 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
     Color = clTeal
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 1034
     object Label1: TLabel
       Left = 21
       Top = 13
@@ -37,7 +38,7 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
       Font.Style = []
       ParentFont = False
     end
-    object Label2: TLabel
+    object lb_nome: TLabel
       Left = 224
       Top = 14
       Width = 42
@@ -50,7 +51,7 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
       Font.Style = []
       ParentFont = False
     end
-    object Label3: TLabel
+    object lb_inicio: TLabel
       Left = 464
       Top = 14
       Width = 39
@@ -63,7 +64,7 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
       Font.Style = []
       ParentFont = False
     end
-    object Label4: TLabel
+    object lb_fim: TLabel
       Left = 640
       Top = 14
       Width = 26
@@ -86,7 +87,8 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
         'C'#211'DIGO'
         'NOME'
         'CADASTRO'
-        'PER'#205'ODO')
+        'PER'#205'ODO'
+        'TODOS')
     end
     object ED_nome: TEdit
       Left = 224
@@ -253,6 +255,7 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
         00000000000000000000030303003D3B3B24474545180C0C0C08020202000000
         0000000000000000000000000000000000000000000000000000}
       TabOrder = 4
+      OnClick = bt_pesquisaClick
     end
     object bt_Transferir: TBitBtn
       Left = 914
@@ -555,7 +558,6 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
     Color = clTeal
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 1034
   end
   object Q_pesq_padrao: TFDQuery
     Connection = DM.conexao

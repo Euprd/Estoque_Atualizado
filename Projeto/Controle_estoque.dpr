@@ -1,5 +1,4 @@
 program Controle_estoque;
-
 uses
   Vcl.Forms,
   U_Principal in '..\Forms\U_Principal.pas' {Frm_Principal},
@@ -15,7 +14,6 @@ uses
   U_pesq_usuario in '..\Forms\U_pesq_usuario.pas' {Frm_Pesq_usuario};
 
 {$R *.res}
-
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;

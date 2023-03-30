@@ -18,9 +18,9 @@ type
     ED_nome: TEdit;
     mk_inicio: TMaskEdit;
     mk_fim: TMaskEdit;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    lb_nome: TLabel;
+    lb_inicio: TLabel;
+    lb_fim: TLabel;
     DBGrid1: TDBGrid;
     Panel2: TPanel;
     bt_pesquisa: TBitBtn;
@@ -28,6 +28,8 @@ type
     bt_imprimir: TBitBtn;
     Q_pesq_padrao: TFDQuery;
     ds_pesq_padrao: TDataSource;
+    procedure bt_pesquisaClick(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -42,5 +44,67 @@ implementation
 {$R *.dfm}
 
 uses U_DM;
+
+procedure TFrm_pesquisa_padrao.bt_pesquisaClick(Sender: TObject);
+begin
+  case cb_chave_pesquisa.ItemIndex of
+  0:begin // pesquisa pelo codigo
+    ed_nome.Visible:=true;
+    ed_nome.SetFocus;
+    mk_inicio.Visible:=False;
+    mk_fim.Visible:=False;
+    lb_nome.Visible:=True;
+    lb_nome.Caption:='Digito o código';
+    lb_fim.Visible:=false;
+    lb_inicio.Visible:=false;
+  end;
+
+  1:begin // pesquisa pelo nome
+    ed_nome.Visible:=true;
+    ed_nome.SetFocus;
+    mk_inicio.Visible:=False;
+    mk_fim.Visible:=False;
+    lb_nome.Visible:=True;
+    lb_nome.Caption:='Digito o nome';
+    lb_inicio.Visible:=false;
+    lb_fim.Visible:=false;
+  end;
+
+  2:begin //seleção por data
+    ed_nome.Visible:=False;
+    mk_inicio.Visible:=true;
+    mk_inicio.SetFocus;
+    mk_fim.Visible:=false;
+    lb_nome.Visible:=false;
+    lb_inicio.Visible:=True;
+    lb_inicio.Caption:='Digite a data';
+    lb_fim.Visible:=false;
+  end;
+
+    3:begin // por periodo
+    ed_nome.Visible:=false;
+    mk_inicio.Visible:=true;
+    mk_inicio.SetFocus;
+    mk_fim.Visible:=true;
+    lb_nome.Visible:=false;
+    lb_inicio.Visible:=True;
+    lb_inicio.Caption:='Digite o periodo';
+    lb_fim.Visible:=True;
+  end;
+
+  end;
+end;
+
+procedure TFrm_pesquisa_padrao.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+
+  //faz função do tab
+
+  if key=#13 then
+  begin
+    Key:=#0;
+    Perform(wm_nextDlgCtl,0,0);
+  end;
+end;
 
 end.

@@ -40,10 +40,31 @@ begin
   q_pesq_padrao.Params.Clear; // limpou os parametros
   Q_pesq_padrao.SQL.Clear; // limpou o sql
   Q_pesq_padrao.SQL.Add('SELECT ID_USUARIO,NOME,TIPO,CADASTRO FROM USUARIO'); // adicionou o sql das colunas/dados
+
   case cb_chave_pesquisa.ItemIndex of
-  0:begin
+  0:begin        // pesquisa por codigo
     Q_pesq_padrao.SQL.Add('WHERE ID_USUARIO =:PID_USUARIO'); // com a condição id recebendo pid criando parametro
     Q_pesq_padrao.ParamByName('PID_USUARIO').AsString:=ed_nome.Text; // nome recebeu um texto para fazer a pesquisa em PID apontando para o compo parametro
+    end;
+
+    1:begin // pesquisa por nome
+    Q_pesq_padrao.SQL.Add('WHERE NOME LIKE :PNOME'); // com a condição id recebendo pid criando parametro
+    Q_pesq_padrao.ParamByName('PNOME').AsString:= '%' + ed_nome.Text + '%'; // nome recebeu um texto para fazer a pesquisa em PID apontando para o compo parametro
+    end;
+
+    2:begin    // pesquisa por data
+      Q_pesq_padrao.SQL.Add('WHERE CADASTRO =:PCADASTRO');
+      Q_pesq_padrao.ParamByName('PCADASTRO').AsDate:=strTodate(mk_inicio.Text);
+    end;
+
+    3:begin    // pesquisa por periodo
+      Q_pesq_padrao.SQL.Add('WHERE CADASTRO BETWEEN :PINICIO AND :PFIM');
+      Q_pesq_padrao.ParamByName('PINICIO').AsDate:=strTodate(mk_inicio.Text);
+      Q_pesq_padrao.ParamByName('PFIM').AsDate:=strTodate(mk_fim.Text);
+    end;
+
+    4:begin   // PESQUISA TODOS USUARIOS.
+      Q_pesq_padrao.SQL.Add('ORDER BY ID_USUARIO');
     end;
   end;
 
@@ -65,31 +86,56 @@ begin
     ed_nome.SetFocus;
     mk_inicio.Visible:=False;
     mk_fim.Visible:=False;
-  end;
+    lb_nome.Visible:=True;
+    lb_nome.Caption:='Digito o código';
+    lb_fim.Visible:=false;
+    lb_inicio.Visible:=false;
+    end;
 
   1:begin // pesquisa pelo nome
     ed_nome.Visible:=true;
     ed_nome.SetFocus;
     mk_inicio.Visible:=False;
     mk_fim.Visible:=False;
-  end;
+    lb_nome.Visible:=True;
+    lb_nome.Caption:='Digito o nome';
+    lb_inicio.Visible:=false;
+    lb_fim.Visible:=false;
+    end;
 
   2:begin //seleção por data
     ed_nome.Visible:=False;
-    mk_inicio.SetFocus;
     mk_inicio.Visible:=true;
-    mk_fim.Visible:=true;
-  end;
+    mk_inicio.SetFocus;
+    mk_fim.Visible:=false;
+    lb_nome.Visible:=false;
+    lb_inicio.Visible:=True;
+    lb_inicio.Caption:='Digite a data';
+    lb_fim.Visible:=false;
+    end;
 
     3:begin // por periodo
     ed_nome.Visible:=false;
-    mk_inicio.SetFocus;
     mk_inicio.Visible:=true;
+    mk_inicio.SetFocus;
     mk_fim.Visible:=true;
-  end;
+    lb_nome.Visible:=false;
+    lb_inicio.Visible:=True;
+    lb_inicio.Caption:='Digite o periodo';
+    lb_fim.Visible:=True;
+    end;
+
+    4:begin // por periodo
+    ed_nome.Visible:=false;
+    mk_inicio.Visible:=FALSE;
+    mk_fim.Visible:=false;
+    lb_nome.Visible:=false;
+    lb_inicio.Visible:=True;
+    lb_inicio.Caption:= 'MOSTRANDO TODOS OS REGRISTRO';
+    lb_fim.Visible:=false;
+    end;
 
   end;
 
 end;
-
 end.

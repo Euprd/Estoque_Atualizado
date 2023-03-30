@@ -3,9 +3,20 @@ inherited Frm_Pesq_usuario: TFrm_Pesq_usuario
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    ExplicitWidth = 1127
     inherited cb_chave_pesquisa: TComboBox
       OnChange = cb_chave_pesquisaChange
+    end
+    inherited mk_inicio: TMaskEdit
+      Width = 150
+      EditMask = '!99/99/0000;1;_'
+      Text = '  /  /    '
+      ExplicitWidth = 150
+    end
+    inherited mk_fim: TMaskEdit
+      Width = 150
+      EditMask = '!99/99/0000;1;_'
+      Text = '  /  /    '
+      ExplicitWidth = 150
     end
     inherited bt_pesquisa: TBitBtn
       OnClick = bt_pesquisaClick
@@ -34,9 +45,6 @@ inherited Frm_Pesq_usuario: TFrm_Pesq_usuario
         FieldName = 'CADASTRO'
         Visible = True
       end>
-  end
-  inherited Panel2: TPanel
-    ExplicitWidth = 1127
   end
   inherited Q_pesq_padrao: TFDQuery
     SQL.Strings = (

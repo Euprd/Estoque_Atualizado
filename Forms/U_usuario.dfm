@@ -45,6 +45,9 @@ inherited Frm_usuario: TFrm_usuario
   end
   inherited Panel1: TPanel
     TabOrder = 5
+    inherited bt_pesquisar: TBitBtn
+      OnClick = bt_pesquisarClick
+    end
   end
   inherited Panel2: TPanel
     Top = 362
