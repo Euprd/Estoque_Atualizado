@@ -1,9 +1,13 @@
 inherited Frm_pesq_cliente: TFrm_pesq_cliente
   Caption = 'PESQUISA DE CLIENTE'
-  ExplicitWidth = 1143
-  ExplicitHeight = 604
+  OnDblClick = FormDblClick
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Panel1: TPanel
+    inherited bt_Transferir: TBitBtn
+      OnClick = bt_TransferirClick
+    end
+  end
   inherited DBGrid1: TDBGrid
     DataSource = ds_pesq_padrao
     Columns = <

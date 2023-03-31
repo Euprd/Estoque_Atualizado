@@ -25,6 +25,7 @@ type
     Q_pesq_padraoEMAIL: TStringField;
     Q_pesq_padraoCADASTRO: TDateField;
     procedure bt_pesquisaClick(Sender: TObject);
+    procedure bt_TransferirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -94,6 +95,16 @@ begin
   else
    abort;
 
+end;
+
+procedure TFrm_pesq_fornecedor.bt_TransferirClick(Sender: TObject);
+begin
+    if Q_pesq_padrao.RecordCount > 0 then    // se query for maior que 0
+    begin
+      codigo:=Q_pesq_padraoID_FORNECEDOR.AsInteger;     //variavel codigo recebeu idcliente
+    end
+    else
+    abort;
 end;
 
 end.

@@ -1,7 +1,5 @@
 inherited Frm_Pesq_usuario: TFrm_Pesq_usuario
   Caption = 'PESQUISA DE USU'#193'RIOS'
-  ExplicitWidth = 1143
-  ExplicitHeight = 604
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
@@ -20,9 +18,13 @@ inherited Frm_Pesq_usuario: TFrm_Pesq_usuario
       Text = '  /  /    '
       ExplicitWidth = 150
     end
+    inherited bt_Transferir: TBitBtn
+      OnClick = bt_TransferirClick
+    end
   end
   inherited DBGrid1: TDBGrid
     DataSource = ds_pesq_padrao
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False

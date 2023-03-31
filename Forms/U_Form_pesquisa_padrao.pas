@@ -8,7 +8,7 @@ uses
   Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Buttons, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, frxClass, frxDBSet;
 
 type
   TFrm_pesquisa_padrao = class(TForm)
@@ -30,10 +30,13 @@ type
     ds_pesq_padrao: TDataSource;
     procedure bt_pesquisaClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    codigo:Integer;
   end;
 
 var
@@ -92,7 +95,41 @@ begin
     lb_fim.Visible:=True;
   end;
 
+    4:begin // pesquisa peor todos
+    ed_nome.Visible:=FALSE;
+    mk_inicio.Visible:=False;
+    mk_fim.Visible:=False;
+    lb_nome.Visible:=True;
+    lb_nome.Caption:='Mostrando todos';
+    lb_fim.Visible:=false;
+    lb_inicio.Visible:=false;
   end;
+
+    5:begin // pesquisa pelo codigo
+    ed_nome.Visible:=true;
+    ed_nome.SetFocus;
+    mk_inicio.Visible:=False;
+    mk_fim.Visible:=False;
+    lb_nome.Visible:=True;
+    lb_nome.Caption:='Digito o código do Fornecedor';
+    lb_fim.Visible:=false;
+    lb_inicio.Visible:=false;
+    ed_nome.Clear;
+  end
+
+  end;
+end;
+
+
+
+procedure TFrm_pesquisa_padrao.DBGrid1DblClick(Sender: TObject);
+begin
+   bt_transferir.Click;
+end;
+
+procedure TFrm_pesquisa_padrao.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Q_pesq_padrao.Close;
 end;
 
 procedure TFrm_pesquisa_padrao.FormKeyPress(Sender: TObject; var Key: Char);

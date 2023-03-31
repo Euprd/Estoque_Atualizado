@@ -13,6 +13,7 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
   KeyPreview = True
   OldCreateOrder = False
   WindowState = wsMaximized
+  OnClose = FormClose
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
@@ -394,6 +395,7 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+      ModalResult = 1
       TabOrder = 5
     end
     object bt_imprimir: TBitBtn
@@ -548,6 +550,7 @@ object Frm_pesquisa_padrao: TFrm_pesquisa_padrao
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
   end
   object Panel2: TPanel
     Left = 0

@@ -18,6 +18,8 @@ type
     Q_pesq_padraoCADASTRO: TDateField;
     procedure bt_pesquisaClick(Sender: TObject);
     procedure cb_chave_pesquisaChange(Sender: TObject);
+    procedure bt_TransferirClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -76,6 +78,18 @@ begin
   end
   else
    abort;
+end;
+
+procedure TFrm_Pesq_usuario.bt_TransferirClick(Sender: TObject);
+begin
+    inherited;
+  if Q_pesq_padrao.RecordCount > 0 then    // se query for maior que 0
+    begin
+      codigo:=Q_pesq_padraoID_Usuario.AsInteger;     //variavel codigo recebeu idcliente
+    end
+    else
+    abort;
+
 end;
 
 procedure TFrm_Pesq_usuario.cb_chave_pesquisaChange(Sender: TObject);
@@ -138,4 +152,10 @@ begin
   end;
 
 end;
+procedure TFrm_Pesq_usuario.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  bt_transferir.Click;
+end;
+
 end.

@@ -1,7 +1,5 @@
 unit U_produto;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
@@ -9,7 +7,6 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
-
 type
   TFrm_produto = class(TFrm_padrao)
     Q_padraoPRODUTO_DESCRICAO: TStringField;
@@ -63,24 +60,40 @@ type
     Label11: TLabel;
     db_id_produto: TDBEdit;
     procedure bt_novoClick(Sender: TObject);
+    procedure bt_pesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
-
 var
   Frm_produto: TFrm_produto;
-
 implementation
-
 {$R *.dfm}
 
+uses U_pesq_produto;
 procedure TFrm_produto.bt_novoClick(Sender: TObject);
 begin
   inherited;
 DB_cadastro.Text:=DateTostr(now);
 db_id_produto.SetFocus;
+end;
+procedure TFrm_produto.bt_pesquisarClick(Sender: TObject);
+begin
+  Frm_pesq_produto:=TFrm_pesq_produto.Create(self);
+  Frm_pesq_produto.ShowModal;
+  try
+     if Frm_pesq_produto.codigo > 0 then
+    begin
+      Q_padrao.Open;
+      Q_padrao.Locate('ID_PRODUTO', Frm_pesq_PRODUTO.codigo,[],); // localizamos o que foi pesquisada  no form pesquisa
+    end;
+  finally
+    Frm_pesq_produto.Free;
+    Frm_pesq_produto:=nil;
+  end;
+
+
 end;
 
 end.

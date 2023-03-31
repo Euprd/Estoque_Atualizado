@@ -1,9 +1,12 @@
 inherited Frm_pesq_fornecedor: TFrm_pesq_fornecedor
   Caption = 'PESQUISA DE FORNECEDOR'
-  ExplicitWidth = 1143
-  ExplicitHeight = 604
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Panel1: TPanel
+    inherited bt_Transferir: TBitBtn
+      OnClick = bt_TransferirClick
+    end
+  end
   inherited DBGrid1: TDBGrid
     DataSource = ds_pesq_padrao
     Columns = <

@@ -56,7 +56,11 @@ begin
 frm_pesq_usuario:=Tfrm_pesq_usuario.Create(self);
 frm_pesq_usuario.ShowModal;
 try
-
+   if Frm_pesq_usuario.codigo > 0 then
+    begin
+      Q_padrao.Open;
+      Q_padrao.Locate('ID_USUARIO', Frm_pesq_usuario.codigo,[],); // localizamos o que foi pesquisada  no form pesquisa
+    end;
 finally
    frm_pesq_usuario.Free;
    frm_pesq_usuario:=nil;

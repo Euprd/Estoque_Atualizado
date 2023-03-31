@@ -69,6 +69,11 @@ begin
 Frm_pesq_cliente:=Tfrm_pesq_cliente.Create(self);
 Frm_pesq_cliente.ShowModal;
 try
+  if Frm_pesq_cliente.codigo > 0 then
+    begin
+      Q_padrao.Open;
+      Q_padrao.Locate('ID_CLIENTE', Frm_pesq_cliente.codigo,[],); // localizamos o que foi pesquisada  no form pesquisa
+    end;
 
 finally
   Frm_pesq_cliente.Free;

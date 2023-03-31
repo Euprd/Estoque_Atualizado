@@ -164,6 +164,9 @@ inherited Frm_produto: TFrm_produto
       Caption = 'NOME'
       FocusControl = DBEdit10
     end
+    inherited bt_pesquisar: TBitBtn
+      OnClick = bt_pesquisarClick
+    end
     object DBEdit1: TDBEdit
       Left = 424
       Top = 80

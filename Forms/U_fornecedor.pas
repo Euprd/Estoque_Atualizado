@@ -1,7 +1,5 @@
 unit U_fornecedor;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
@@ -9,7 +7,6 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
-
 type
   TFrm_fornecedor = class(TFrm_padrao)
     Q_padraoID_FORNECEDOR: TFDAutoIncField;
@@ -55,29 +52,28 @@ type
   public
     { Public declarations }
   end;
-
 var
   Frm_fornecedor: TFrm_fornecedor;
-
 implementation
-
 {$R *.dfm}
 
 uses U_pesq_fornecedor;
-
 procedure TFrm_fornecedor.bt_novoClick(Sender: TObject);
 begin
   inherited;
   db_cadastro.Text:=DateTostr(now);
   db_nome.SetFocus;
 end;
-
 procedure TFrm_fornecedor.bt_pesquisarClick(Sender: TObject);
 begin
  Frm_pesq_fornecedor:=TFrm_pesq_fornecedor.Create(self);
  Frm_pesq_fornecedor.ShowModal;
  try
-
+  if Frm_pesq_FORNECEDOR.codigo > 0 then
+    begin
+      Q_padrao.Open;
+      Q_padrao.Locate('ID_FORNECEDOR', Frm_pesq_FORNECEDOR.codigo,[],); // localizamos o que foi pesquisada  no form pesquisa
+    end;
  finally
     Frm_pesq_fornecedor.Free;
     Frm_pesq_fornecedor:=nil;
