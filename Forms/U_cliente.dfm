@@ -9,7 +9,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label1: TLabel [0]
     Left = 224
     Top = 88
-    Width = 200
+    Width = 58
     Height = 13
     Caption = 'ID_CLIENTE'
     FocusControl = DBEdit1
@@ -17,7 +17,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label2: TLabel [1]
     Left = 224
     Top = 136
-    Width = 200
+    Width = 29
     Height = 13
     Caption = 'NOME'
     FocusControl = db_nome
@@ -25,7 +25,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label3: TLabel [2]
     Left = 224
     Top = 184
-    Width = 200
+    Width = 54
     Height = 13
     Caption = 'ENDERECO'
     FocusControl = DBEdit3
@@ -33,7 +33,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label4: TLabel [3]
     Left = 512
     Top = 184
-    Width = 57
+    Width = 43
     Height = 13
     Caption = 'NUMERO'
     FocusControl = DBEdit4
@@ -41,7 +41,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label5: TLabel [4]
     Left = 224
     Top = 232
-    Width = 200
+    Width = 39
     Height = 13
     Caption = 'BAIRRO'
     FocusControl = DBEdit5
@@ -49,7 +49,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label6: TLabel [5]
     Left = 440
     Top = 232
-    Width = 48
+    Width = 38
     Height = 13
     Caption = 'CIDADE'
     FocusControl = DBEdit6
@@ -57,7 +57,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label7: TLabel [6]
     Left = 224
     Top = 280
-    Width = 200
+    Width = 13
     Height = 13
     Caption = 'UF'
     FocusControl = DBEdit7
@@ -65,7 +65,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label8: TLabel [7]
     Left = 440
     Top = 280
-    Width = 33
+    Width = 19
     Height = 13
     Caption = 'CEP'
     FocusControl = DBEdit8
@@ -73,7 +73,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label9: TLabel [8]
     Left = 224
     Top = 328
-    Width = 200
+    Width = 50
     Height = 13
     Caption = 'TELEFONE'
     FocusControl = DBEdit9
@@ -81,7 +81,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label10: TLabel [9]
     Left = 440
     Top = 328
-    Width = 48
+    Width = 19
     Height = 13
     Caption = 'CPF'
     FocusControl = DBEdit10
@@ -89,7 +89,7 @@ inherited Frm_cliente: TFrm_cliente
   object Label11: TLabel [10]
     Left = 224
     Top = 376
-    Width = 200
+    Width = 30
     Height = 13
     Caption = 'EMAIL'
     FocusControl = DBEdit11
@@ -97,17 +97,23 @@ inherited Frm_cliente: TFrm_cliente
   object Label12: TLabel [11]
     Left = 402
     Top = 91
-    Width = 200
+    Width = 55
     Height = 13
     Caption = 'CADASTRO'
     FocusControl = DB_cadastro
   end
   inherited Panel1: TPanel
     Width = 866
+    ExplicitWidth = 866
+    inherited bt_pesquisar: TBitBtn
+      OnClick = bt_pesquisarClick
+    end
   end
   inherited Panel2: TPanel
     Top = 441
     Width = 866
+    ExplicitTop = 441
+    ExplicitWidth = 866
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
@@ -234,11 +240,10 @@ inherited Frm_cliente: TFrm_cliente
       'CIDADE,'
       'UF,'
       'CEP,'
-      'TELEFONE'
+      'TELEFONE,'
       'CPF,'
       'EMAIL,'
-      'CADASTRO,'
-      'TELEFONE'
+      'CADASTRO'
       'FROM CLIENTE'
       'ORDER BY ID_CLIENTE')
     Left = 752

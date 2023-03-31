@@ -1,7 +1,5 @@
 unit U_cliente;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
@@ -9,7 +7,6 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
-
 type
   TFrm_cliente = class(TFrm_padrao)
     Q_padraoID_CLIENTE: TFDAutoIncField;
@@ -49,23 +46,35 @@ type
     Label12: TLabel;
     DB_cadastro: TDBEdit;
     procedure bt_novoClick(Sender: TObject);
+    procedure bt_pesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
-
 var
   Frm_cliente: TFrm_cliente;
-
 implementation
-
 {$R *.dfm}
 
+uses U_Pesq_Cliente;
 procedure TFrm_cliente.bt_novoClick(Sender: TObject);
 begin
   inherited;
   db_cadastro.Text:=DateTostr(now);
   db_nome.SetFocus;
 end;
-end.
+procedure TFrm_Cliente.bt_PesquisarClick(Sender: TObject);
+begin
+Frm_pesq_cliente:=Tfrm_pesq_cliente.Create(self);
+Frm_pesq_cliente.ShowModal;
+try
+
+finally
+  Frm_pesq_cliente.Free;
+  Frm_pesq_cliente:=nil;
+end;
+
+end;
+
+End.
