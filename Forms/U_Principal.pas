@@ -86,7 +86,7 @@ Frm_cliente.ShowModal;
 try
 
 finally
-  frm_cliente.Free;
+  frm_cliente.Free;   //libera da memoria
   frm_cliente:=nil;
 end;
 end;
@@ -160,6 +160,7 @@ procedure TFrm_Principal.bt_UsuarioClick(Sender: TObject);
 begin
  Abre_tela_usuario;
 end;
+
 
 procedure TFrm_Principal.menu_clientesClick(Sender: TObject);
 begin

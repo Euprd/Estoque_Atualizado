@@ -5358,7 +5358,6 @@ object Frm_Principal: TFrm_Principal
       item
         Width = 150
       end>
-    ExplicitTop = 616
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer

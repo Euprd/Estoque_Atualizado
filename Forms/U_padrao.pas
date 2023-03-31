@@ -73,7 +73,7 @@ if messagedlg('Deseja deletar esse registro?',mtConfirmation,[mbOk,mbNo],0)=mrOk
   begin
       Q_padrao.delete;
       Messagedlg('Registro deletado com sucesso!',mtInformation, [mbOk],0);
-      Tratabotoes
+      Tratabotoes;
   end
   else
   Tratabotoes;
@@ -95,7 +95,7 @@ end;
 
 procedure TFrm_padrao.bt_gravarClick(Sender: TObject);
 begin
-//salva o registro
+//salva o registro no bd
 Tratabotoes;
   Q_padrao.post;
   Messagedlg('Registro Salvo com sucesso!',mtInformation,[mbOk],0);
@@ -106,12 +106,12 @@ begin
 //cria um novo registro
 Q_padrao.Open;
 Tratabotoes;
-Q_padrao.append;
+Q_padrao.append;  //nao usei insert pq insere uma linha nova(posição do cursor). Usei append pra inserir uma nova linha no fim da tabela
 end;
 
 procedure TFrm_padrao.bt_sairClick(Sender: TObject);
 begin
-close;
+close;    //fecha somente o formulario
 end;
 
 procedure TFrm_padrao.FormKeyPress(Sender: TObject; var Key: Char);
@@ -126,7 +126,7 @@ end;
 
 procedure TFrm_padrao.Tratabotoes;
 begin
-//habilita e desabilita os botões
+//habilita e desabilita os botões     uso dentro da procedure pra chamar
 bt_novo.Enabled:=not bt_novo.Enabled;
 bt_deletar.Enabled:=not bt_deletar.Enabled;
 bt_editar.Enabled:=not bt_editar.Enabled;
